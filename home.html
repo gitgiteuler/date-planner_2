@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>おすすめデートスポット | 店舗情報と地図</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans+JP:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="brand">山形デートマップ</h1>
+            <nav class="site-nav" aria-label="主要ナビゲーション">
+                <a href="#" class="nav-link is-active">地図</a>
+                <a href="#" class="nav-link">スポット一覧</a>
+                <a href="#" class="nav-link">このサイトについて</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="layout">
+        <!-- Sidebar: Form and filters -->
+        <aside class="sidebar" aria-label="店舗情報入力と時間帯の選択">
+            <section class="panel">
+                <h2 class="panel-title">店舗情報を入力</h2>
+                <form class="store-form" action="#" method="post" autocomplete="on">
+                    <div class="form-row">
+                        <label for="store-name">店舗名</label>
+                        <input type="text" id="store-name" name="store_name" placeholder="例: カフェ さくら" required />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="store-category">カテゴリ</label>
+                        <select id="store-category" name="store_category">
+                            <option value="">選択してください</option>
+                            <option value="cafe">カフェ</option>
+                            <option value="restaurant">レストラン</option>
+                            <option value="view">展望・夜景</option>
+                            <option value="park">公園</option>
+                            <option value="onsen">温泉</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row form-inline">
+                        <div class="form-col">
+                            <label for="open-time">開店時間</label>
+                            <input type="time" id="open-time" name="open_time" />
+                        </div>
+                        <div class="form-col">
+                            <label for="close-time">閉店時間</label>
+                            <input type="time" id="close-time" name="close_time" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="date-time">デート時間帯</label>
+                        <select id="date-time" name="date_time">
+                            <option value="">選択してください</option>
+                            <option value="morning">朝</option>
+                            <option value="afternoon">昼</option>
+                            <option value="evening">夕方</option>
+                            <option value="night">夜</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="store-address">住所</label>
+                        <input type="text" id="store-address" name="store_address" placeholder="例: 山形市七日町..." />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="notes">メモ</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="おすすめポイントや混雑状況など"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary">スポットを追加</button>
+                        <button type="reset" class="btn ghost">クリア</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2 class="panel-title">フィルター</h2>
+                <div class="filters">
+                    <label class="checkbox">
+                        <input type="checkbox" name="filter_cafe" checked />
+                        <span>カフェ</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" name="filter_restaurant" checked />
+                        <span>レストラン</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" name="filter_view" checked />
+                        <span>展望・夜景</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" name="filter_park" checked />
+                        <span>公園</span>
+                    </label>
+                    <label class="checkbox">
+                        <input type="checkbox" name="filter_onsen" checked />
+                        <span>温泉</span>
+                    </label>
+                </div>
+            </section>
+        </aside>
+
+        <!-- Map: Pins overlay -->
+        <section class="map-area" aria-label="おすすめデートスポットの地図">
+            <div class="map-toolbar">
+                <div class="search">
+                    <input type="search" placeholder="スポット検索（例：夜景、カフェ）" aria-label="スポット検索" />
+                    <button class="btn small">検索</button>
+                </div>
+                <div class="legend">
+                    <span class="legend-item"><span class="dot dot-cafe"></span>カフェ</span>
+                    <span class="legend-item"><span class="dot dot-restaurant"></span>レストラン</span>
+                    <span class="legend-item"><span class="dot dot-view"></span>展望・夜景</span>
+                    <span class="legend-item"><span class="dot dot-park"></span>公園</span>
+                    <span class="legend-item"><span class="dot dot-onsen"></span>温泉</span>
+                </div>
+            </div>
+
+            <div class="map" role="img" aria-label="山形市周辺地図（デモ背景）">
+                <!-- Background placeholder (replace with a real map later) -->
+                <div class="map-bg"></div>
+
+                <!-- Demo pins (positioned with percentages) -->
+                <button class="pin pin-cafe" style="left: 32%; top: 48%;" aria-label="カフェ さくら">
+                    <span class="pin-dot"></span>
+                    <span class="pin-label">カフェ さくら</span>
+                </button>
+                <button class="pin pin-view" style="left: 62%; top: 28%;" aria-label="双月橋 夜景">
+                    <span class="pin-dot"></span>
